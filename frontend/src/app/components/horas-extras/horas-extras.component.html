@@ -1,0 +1,149 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card-content">
+
+        <form #horaExtraForm="ngForm" (ngSubmit)="addHoraExtra(horaExtraForm)">
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                  type="text"
+                  name="documento"
+                  [(ngModel)]="horasExtraService.selectedHoraExtra.documento"
+                  placeholder="Enter a documento">
+            </div>
+
+            <div class="input-field col s12">
+              <input
+                  type="text"
+                  name="nombres"
+                  [(ngModel)]="horasExtraService.selectedHoraExtra.nombres"
+                  placeholder="Enter your nombres">
+            </div>
+            <div class="input-field col s12">
+              <input
+                  type="text"
+                  name="apellidos"
+                  [(ngModel)]="horasExtraService.selectedHoraExtra.apellidos"
+                  placeholder="Enter your apellidos">
+            </div>
+            <div class="input-field col s12">
+              <input
+                type="date"
+                class="datepicker"
+                  name="fecha_inicio"
+                  [(ngModel)]="horasExtraService.selectedHoraExtra.fecha_inicio">
+            </div>
+            <div class="input-field col s12">
+              <input
+                  type="date"
+                  class="datepicker"
+                  name="fecha_fin"
+                  [(ngModel)]="horasExtraService.selectedHoraExtra.fecha_fin">
+            </div>
+            <div class="input-field col s12">
+              <input
+                  type="time"
+                  class="timepicker"
+                  name="hora_inicio"
+                  [(ngModel)]="horasExtraService.selectedHoraExtra.hora_inicio">
+                  use arrow keys to change the time and meridian: 01:30 pm
+            </div>
+            <div class="input-field col s12">
+              <input
+                  type="time"
+                  class="timepicker"
+                  name="hora_fin"
+                  [(ngModel)]="horasExtraService.selectedHoraExtra.hora_fin">
+                  use arrow keys to change the time and meridian: 01:30 pm
+            </div>
+            <div class="input-field col s12">
+              <input
+                  type="time"
+                  class="timepicker"
+                  name="hora_ini_extra"
+                  [(ngModel)]="horasExtraService.selectedHoraExtra.hora_ini_extra">
+                  use arrow keys to change the time and meridian: 01:30 pm
+            </div>
+            <div class="input-field col s12">
+              <input
+                  type="time"
+                  class="timepicker"
+                  name="hora_fin_extra"
+                  [(ngModel)]="horasExtraService.selectedHoraExtra.hora_fin_extra">
+                  use arrow keys to change the time and meridian: 01:30 pm
+            </div>
+            <div class="input-field col s12">
+              <input
+                  type="text"
+                  name="motivo_hora_extra"
+                  [(ngModel)]="horasExtraService.selectedHoraExtra.motivo_hora_extra"
+                  placeholder="Enter the motivo for hora extra">
+            </div>
+            <div class="card-action">
+              <div class="input-field col s12">
+                <button class="btn left">Save</button>
+                <button class="btn right" (click)="resetForm(horaExtraForm)">Clean</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+    <div class="col s7">
+      <table>
+        <thead>
+          <th>documento</th>
+          <th>nombre</th>
+          <th>fecha inicio</th>
+          <th>fecha fin</th>
+          <th>hora inicio</th>
+          <th>hora fin</th>
+          <th>hora ini extra</th>
+          <th>hora fin extra</th>
+          <th>motivo hora extra</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hora_extra of horasExtraService.horas_extras">
+            <td>{{ hora_extra.documento }} </td>
+            <td>{{ hora_extra.nombres }} {{ hora_extra.apellidos }} </td>
+            <td>{{ hora_extra.fecha_inicio }} </td>
+            <td>{{ hora_extra.fecha_fin }} </td>
+            <td>{{ hora_extra.hora_inicio }} </td>
+            <td>{{ hora_extra.hora_fin }} </td>
+            <td>{{ hora_extra.hora_ini_extra }} </td>
+            <td>{{ hora_extra.hora_fin_extra }} </td>
+            <td>{{ hora_extra.motivo_hora_extra }} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col s12">
+      <table>
+        <thead>
+          <th>id</th>
+          <th>name</th>
+          <th>username</th>
+          <th>email</th>
+          <th>addres</th>
+          <th>phone</th>
+          <th>website</th>
+          <th>company</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.id }} </td>
+            <td>{{ user.name }} </td>
+            <td>{{ user.username }} </td>
+            <td>{{ user.email }} </td>
+            <td>{{ user.address.street }} {{ user.address.suite }} {{ user.address.city }}</td>
+            <td>{{ user.phone }} </td>
+            <td>{{ user.website }} </td>
+            <td>{{ user.company.name }} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
